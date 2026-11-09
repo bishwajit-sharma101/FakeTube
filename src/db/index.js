@@ -5,7 +5,7 @@ import app from "../app.js";
 const dbConnect = async()=>{
     try {
         const connectionInstance = mongoose.connect(`${process.env.MONGO_URL}/${dbName}`);
-        console.log(`\n mongodb connected ${connectionInstance.connection.host}`);
+        console.log(`mongodb connected ${(await connectionInstance).Connection}`);
         app.on("error",(error)=>{
             console.log("Express failed to communicate with the DB",error);
             throw error;
