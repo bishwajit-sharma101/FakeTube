@@ -1,8 +1,12 @@
+dotenv.config({
+    path:"./.env"
+});
+
 import dbConnect from "./db/index.js";
 import dotenv from 'dotenv'
 import app from "./app.js";
 
-dotenv.config();
+
 
 dbConnect()
 .then(()=>{
@@ -11,6 +15,6 @@ dbConnect()
         
     })
 }).catch((err)=>{
-    console.log(err);
+    console.log("error in index.js",err);
     
 })

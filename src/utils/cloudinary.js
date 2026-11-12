@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { v2 as cloudinary } from "cloudinary";
 import fs from 'fs'
 
@@ -20,7 +21,8 @@ export const uploadOnCloudinary = async function (localPath) {
     }
   )
 
-  console.log(`file has been uploaded \n ${response.url}`);
+  // console.log(`file has been uploaded \n ${response.url}`);
+   fs.unlinkSync(localPath);
 
   return response
 

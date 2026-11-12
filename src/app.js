@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 import express from 'express';
 import cors from 'cors'
 import cookieParser from "cookie-parser";
@@ -16,13 +18,20 @@ app.use(express.urlencoded({extended:true, limit:"16kb"}));
 app.use(express.static("public"));
 app.use(cookieParser());
 
+
+//basic route
+
+app.get("/",(req,res)=>{
+    res.send("hello")
+})
+
 //importing routers
 
 import authRouter from "./routes/user.routes.js";
 
 //route declaratiom
 
-app.use("api/v1/user",authRouter)
+app.use("/api/v1/users",authRouter)
 
 
 export default app;
